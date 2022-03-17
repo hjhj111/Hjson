@@ -28,7 +28,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="readme.md">
+    <None Include="..\readme.md">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
