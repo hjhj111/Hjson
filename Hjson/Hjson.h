@@ -16,7 +16,7 @@ namespace Hjson
 	using Array = std::vector<Json>;
 	using Object = std::unordered_map<std::string, Json>;
 
-	inline bool in_range(long x, long lower, long upper) {
+	inline bool InRange(long x, long lower, long upper) {
 		return (x >= lower && x <= upper);
 	}
 
@@ -698,12 +698,12 @@ namespace Hjson
 			// Integer part
 			if (str_[i] == '0') {
 				i++;
-				if (in_range(str_[i], '0', '9'))
+				if (InRange(str_[i], '0', '9'))
 					return fail("leading 0s not permitted in numbers");
 			}
-			else if (in_range(str_[i], '1', '9')) {
+			else if (InRange(str_[i], '1', '9')) {
 				i++;
-				while (in_range(str_[i], '0', '9'))
+				while (InRange(str_[i], '0', '9'))
 					i++;
 			}
 			else {
@@ -719,10 +719,10 @@ namespace Hjson
 			// Decimal part
 			if (str_[i] == '.') {
 				i++;
-				if (!in_range(str_[i], '0', '9'))
+				if (!InRange(str_[i], '0', '9'))
 					return fail("at least one digit required in fractional part");
 
-				while (in_range(str_[i], '0', '9'))
+				while (InRange(str_[i], '0', '9'))
 					i++;
 			}
 
@@ -733,10 +733,10 @@ namespace Hjson
 				if (str_[i] == '+' || str_[i] == '-')
 					i++;
 
-				if (!in_range(str_[i], '0', '9'))
+				if (!InRange(str_[i], '0', '9'))
 					return fail("at least one digit required in exponent");
 
-				while (in_range(str_[i], '0', '9'))
+				while (InRange(str_[i], '0', '9'))
 					i++;
 			}
 
